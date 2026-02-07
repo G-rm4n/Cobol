@@ -1,0 +1,40 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. CONDICIONALBASICO.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       
+       77  WS-EDAD PIC 9(2).
+       77  WS-ELECCION PIC A.
+           88 ACEPTAR VALUE "S".
+           88 NEGADO VALUE "N".
+           *> ESTOS CONDICIONALES SON UTILES CUANDO QUEREMOS COMPARAR 
+           *> CONTRA UN VALOR CONCRETO, CON RANGOS CONVIENE UTILIZAR
+           *> IF
+       PROCEDURE DIVISION.
+
+           DISPLAY "INGRESE SU EDAD: " WITH NO ADVANCING.
+           ACCEPT WS-EDAD.
+           
+       *>EN LOS IF NO HAY QUE PONER PUNTOS AL FINAL DE CADA LINEA
+       *>O DARA ERROR AL COMPILAR, SOLO AL FINAL
+           IF (WS-EDAD>=18)
+               DISPLAY "ERES MAYOR DE EDAD."
+           ELSE
+               DISPLAY "ERES MENOR DE EDAD."
+           END-IF.
+           
+           DISPLAY "INGRESE SU ELECCION: " WITH NO ADVANCING.
+           ACCEPT WS-ELECCION.
+
+           EVALUATE true
+               WHEN ACEPTAR
+                   DISPLAY "USTED ACEPTO."
+               WHEN NEGADO
+                   DISPLAY "USTED SE NEGO."
+               WHEN OTHER
+                   DISPLAY "USTED NO INGRESO NADA VALIDO"
+           END-EVALUATE.
+       
+       STOP RUN.
+

@@ -1,0 +1,74 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. EJERCICIO1.
+
+       DATA DIVISION.
+
+      *Calcular cuántos pesos tiene un banco en monedas si dispone de N1 monedas de 1
+      *peso, N2 de medio peso, N3 de un cuarto de peso, N4 de 10 centavos de peso y N5 de
+      *5 centavos de peso. (N1, N2, N3, N4 y N5 son cantidades)
+       
+       *>VALOR DE MONEDAS.
+
+       WORKING-STORAGE SECTION.
+
+       77 WS-VALUE-N1 PIC 9(1) VALUE 1.
+       77 WS-VALUE-N2 PIC 9(1)V9(2) VALUE 0.50 .
+       77 WS-VALUE-N3 PIC 9(1)V9(2) VALUE 0.25 .
+       77 WS-VALUE-N4 PIC 9(1)V9(2) VALUE 0.10 .
+       77 WS-VALUE-N5 PIC 9(1)V9(2) VALUE 0.05 .
+       
+       *>CANTIDAD DE MONEDAS.
+       77 WS-AMOUNT-N1 PIC 9(2).
+       77 WS-AMOUNT-N2 PIC 9(2).
+       77 WS-AMOUNT-N3 PIC 9(2).
+       77 WS-AMOUNT-N4 PIC 9(2).
+       77 WS-AMOUNT-N5 PIC 9(2).
+
+       *>RESULTADOS
+
+       77 WS-RESULT-N1 PIC 9(2)V9(2).
+       77 WS-RESULT-N2 PIC 9(2)V9(2).
+       77 WS-RESULT-N3 PIC 9(2)V9(2).
+       77 WS-RESULT-N4 PIC 9(2)V9(2).
+       77 WS-RESULT-N5 PIC 9(2)V9(2).
+       
+       77 WS-TOTAL-RES PIC 9(3)V9(2).
+
+       PROCEDURE DIVISION.
+           
+           DISPLAY "INGRESE LA CANTIDAD DE MONEDAS N1: "WITH NO
+           ADVANCING.
+           ACCEPT WS-AMOUNT-N1.
+
+           DISPLAY "INGRESE LA CANTIDAD DE MONEDAS N2: "WITH NO
+           ADVANCING.
+           ACCEPT WS-AMOUNT-N2.
+
+           DISPLAY "INGRESE LA CANTIDAD DE MONEDAS N3: "WITH NO
+           ADVANCING.
+           ACCEPT WS-AMOUNT-N3.
+
+           DISPLAY "INGRESE LA CANTIDAD DE MONEDAS N4: "WITH NO
+           ADVANCING.
+           ACCEPT WS-AMOUNT-N4.
+
+           DISPLAY "INGRESE LA CANTIDAD DE MONEDAS N5: "WITH NO
+           ADVANCING.
+           ACCEPT WS-AMOUNT-N5.
+
+           *>EL VERBO COMPUTE PERMITE HACER EXPRESIONES MATEMATICAS MAS
+           *>COMPLEJAS
+
+           COMPUTE WS-RESULT-N1 = WS-AMOUNT-N1 * WS-VALUE-N1.
+           COMPUTE WS-RESULT-N2 = WS-AMOUNT-N2 * WS-VALUE-N2.
+           COMPUTE WS-RESULT-N3 = WS-AMOUNT-N3 * WS-VALUE-N3.
+           COMPUTE WS-RESULT-N4 = WS-AMOUNT-N4 * WS-VALUE-N4.
+           COMPUTE WS-RESULT-N5 = WS-AMOUNT-N5 * WS-VALUE-N5.
+
+           COMPUTE WS-TOTAL-RES = WS-RESULT-N1 + WS-RESULT-N2 +
+           WS-RESULT-N3 + WS-RESULT-N4 + WS-RESULT-N5.
+
+           DISPLAY "RESULTADO TOTAL: " WS-TOTAL-RES.
+
+       STOP RUN.
+
