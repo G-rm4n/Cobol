@@ -20,17 +20,22 @@
        *>O DARA ERROR AL COMPILAR, SOLO AL FINAL
            IF (WS-EDAD>=18)
                DISPLAY "ERES MAYOR DE EDAD."
-           ELSE
+           ELSE *> PODEMOS COLOCAR ELSE IF CONDICION PARA HACER
+                *> CONDICIONES ANIDADAS
                DISPLAY "ERES MENOR DE EDAD."
            END-IF.
            
            DISPLAY "INGRESE SU ELECCION: " WITH NO ADVANCING.
            ACCEPT WS-ELECCION.
 
-           EVALUATE true
-               WHEN ACEPTAR
-                   DISPLAY "USTED ACEPTO."
-               WHEN NEGADO
+           EVALUATE true *> AQUI PUEDE IR UN LITERAL O VARIABLE, SIENDO
+                         *> POSIBLE EVALUAR MAS DE UNA AL INCORPORAR
+                         *> ALSO VARIABLE/LITERAL
+               WHEN "MAÑANA" *>ALSO VALOR -> PARA MAS DE UNA
+                   DISPLAY "USTED TRABAJA EN LA MAÑANA, EN CUALQUIER SE"
+                   "CCION"
+               WHEN edad>18 *> ALSO ANY -> PARA QUE NO SE TENGA EN
+                            *> EL SEGUNDO VALOR.
                    DISPLAY "USTED SE NEGO."
                WHEN OTHER
                    DISPLAY "USTED NO INGRESO NADA VALIDO"
